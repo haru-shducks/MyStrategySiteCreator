@@ -1,2 +1,5 @@
-<h1>Sites#show</h1>
+<h1><%= @site.name %></h1>
 <p>Find me in app/views/sites/show.html.erb</p>
+<% if @site.user == current_user %>
+  <%= link_to "削除する", site_path(@site.id), method: :delete %>
+<% end %>

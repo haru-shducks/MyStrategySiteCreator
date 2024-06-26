@@ -11,20 +11,28 @@
   </head>
 
   <body>
-    <h1><%= link_to "MyStrategySiteCreator", root_path %></h1>
-    <%= link_to "アバウトページ", homus_about_path %>
-    <% if user_signed_in? %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "新規作成", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
+    <header>
+      <h1><%= link_to "MyStrategySiteCreator", root_path %></h1>
+      <%= link_to "アバウトページ", homus_about_path %>
+      <% if user_signed_in? %>
+        <%= link_to "サイト一覧へ", sites_path %>
+        <%= link_to "サイトを作る", new_site_path %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "新規作成", new_user_registration_path %>
+        <%= link_to "ログイン", new_user_session_path %>
 
-    <% end %>
-    <br>
-    <% if user_signed_in? %>
-      <%= current_user.name %>さんでログインしています
-    <% end %>
+      <% end %>
+      <br>
+      <% if user_signed_in? %>
+        <%= current_user.name %>さんでログインしています
+      <% end %>
+    </header>
 
     <%= yield %>
+
+    <footer>
+
+    </footer>
   </body>
 </html>

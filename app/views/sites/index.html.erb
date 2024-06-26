@@ -1,2 +1,17 @@
-<h1>Sites#index</h1>
+<h1>サイト検索ページ</h1>
 <p>Find me in app/views/sites/index.html.erb</p>
+
+<table>
+  <%  @sites.each do |sites| %>
+    <tr>
+      <td>
+        ・
+      </td>
+      <td>
+        <%= link_to site_path(sites.id) do %>
+          <h3><%= sites.name %></h3>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
